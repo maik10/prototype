@@ -1,0 +1,28 @@
+<div class="col-md-2 col-sm-2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Pages {{id}}
+        </div>
+        <div class="panel-body" *ngIf="pagecomponent.pages" [dragula]='"pages"'>
+            <div class="page" 
+            *ngFor="let page of pagecomponent.pages; let i = index"  
+            (click)="selectPage(page)" 
+            [class.selected]="page === selectedPage">
+            {{page.title}}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-10">
+    <div class="tools col-md-12 col-xs-12">
+        <ul class="nav nav-pills" [dragula]='"tools"' [dragulaModel]="tool">
+            <li><span class="fa fa-plus-square"></span></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <workspace [dragula]='"workspace"' [dragulaModel]="tool" class="workspace col-md-12 col-xs-12" >
+    </workspace>
+</div>

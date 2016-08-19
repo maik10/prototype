@@ -1,0 +1,18 @@
+<table class="table table-striped table-responsive" *ngIf="units">
+    <thead>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Creation Date</th>
+        <th>Last Change</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let unit  of units" (click)="editUnit(unit)">
+            <td>{{unit.id}}</td>
+            <td>{{unit.name}}</td>
+            <td>{{unit.description}}</td>
+            <td>{{unit.creationdate}}</td>
+            <td>{{unit.lastchange}}</td>
+        </tr>
+    </tbody>
+</table>
