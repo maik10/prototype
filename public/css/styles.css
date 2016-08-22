@@ -10,7 +10,10 @@
     font-weight: bold;
     cursor:pointer;
 }
-
+.wks-section{
+  border: 1px solid #ccc;
+  padding:1%; 
+}
 .selected {
   background: #067ade;
   color:#fff;
@@ -31,6 +34,15 @@
     font-size: 2em;
     border: 1px solid #ccc;
     box-shadow: 0px 11px 13px #ccc;
+}
+.tools{
+  font-size: 2em;
+  background: #EFF0F1
+}
+.tools ul li{
+    margin-left: 0px;
+    padding: .5%;
+    border-right: 1px solid rgba(0,0,0,.8);
 }
 .workspace{
   min-height: 250px;

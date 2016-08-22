@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var pages_component_1 = require('./../pages/pages.component');
+var pages_component_1 = require('./pages/pages.component');
 var ng2_dragula_1 = require('ng2-dragula/ng2-dragula');
 var EditorComponent = (function () {
     function EditorComponent(route, router, activatedRoute, dragulaService) {
@@ -23,21 +23,20 @@ var EditorComponent = (function () {
             removeOnSpill: true
         });
         dragulaService.setOptions('workspace', {
-            copy: true,
-            accepts: function (el, target, source, sibling) {
-                console.log('accepts');
-                return true; // elements can be dropped in any of the `containers` by default
-            }
-        });
-        dragulaService.setOptions('tools', {
-            copy: true,
-            accepts: function (el, target, source, sibling) {
-                console.log('accepts');
-                return true; // elements can be dropped in any of the `containers` by default
+            copy: function (el, source) {
+                return source === document.getElementById('tools');
+            },
+            accepts: function (el, target) {
+                return target !== document.getElementById('tools');
             }
         });
         dragulaService.drop.subscribe(function (value) {
-            console.log(value);
+            var newNode = document.createElement("section");
+            newNode.textContent = "HTML5 section!";
+            newNode.classList.add("col-md-6");
+            newNode.classList.add("col-xs-6");
+            newNode.classList.add("wks-section");
+            value[1].parentNode.replaceChild(newNode, value[1]);
         });
     }
     EditorComponent.prototype.ngOnInit = function () {

@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute} from '@angular/router';
 import { EditorService } from './editor.service';
-import { PagesComponent } from './../pages/pages.component';
-import { Page } from './../pages/page.model';
+import { PagesComponent } from './pages/pages.component';
+import { Page } from './pages/page.model';
 import {Dragula, DragulaService} from 'ng2-dragula/ng2-dragula';
 import {DND_PROVIDERS, DND_DIRECTIVES} from 'ng2-dnd/ng2-dnd';
 
@@ -23,22 +23,20 @@ export class EditorComponent implements OnInit {
             removeOnSpill: true
         });
         dragulaService.setOptions('workspace',{
-            copy: true,
-            accepts: function (el, target, source, sibling) {
-                console.log('accepts');
-                return true; // elements can be dropped in any of the `containers` by default
+            copy: function (el, source) {
+                return source === document.getElementById('tools');
+            },
+            accepts: function (el, target) {
+                return target !== document.getElementById('tools');
             }
-        });
-        dragulaService.setOptions('tools',{
-            copy: true,
-            accepts: function (el, target, source, sibling) {
-                console.log('accepts');
-                return true; // elements can be dropped in any of the `containers` by default
-            }
-        
         });
         dragulaService.drop.subscribe((value) => {
-            console.log(value);
+            var newNode = document.createElement("section");
+            newNode.textContent = "HTML5 section!";
+            newNode.classList.add("col-md-6");
+            newNode.classList.add("col-xs-6");
+            newNode.classList.add("wks-section");
+            value[1].parentNode.replaceChild(newNode,value[1]);
         });
      }
 

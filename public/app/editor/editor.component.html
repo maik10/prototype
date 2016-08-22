@@ -15,12 +15,9 @@
 </div>
 <div class="col-md-10">
     <div class="tools col-md-12 col-xs-12">
-        <ul class="nav nav-pills" [dragula]='"tools"' [dragulaModel]="tool">
-            <li><span class="fa fa-plus-square"></span></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+        <ul class="nav nav-pills" [dragula]='"workspace"' [dragulaModel]="tool" id="tools">
+            <li><i class="fa fa-plus-square"></i></li>
+            <li><i class="fa fa-html5" aria-hidden="true"></i></li>
         </ul>
     </div>
     <workspace [dragula]='"workspace"' [dragulaModel]="tool" class="workspace col-md-12 col-xs-12" >
