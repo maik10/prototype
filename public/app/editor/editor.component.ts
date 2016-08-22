@@ -31,12 +31,15 @@ export class EditorComponent implements OnInit {
             }
         });
         dragulaService.drop.subscribe((value) => {
-            var newNode = document.createElement("section");
-            newNode.textContent = "HTML5 section!";
-            newNode.classList.add("col-md-6");
-            newNode.classList.add("col-xs-6");
-            newNode.classList.add("wks-section");
-            value[1].parentNode.replaceChild(newNode,value[1]);
+            console.log(value)
+            if(value[0]=='workspace'){
+                var newNode = document.createElement("section");
+                newNode.textContent = "HTML5 section!";
+                newNode.classList.add("col-md-6");
+                newNode.classList.add("col-xs-6");
+                newNode.classList.add("wks-section");
+                value[1].parentNode.replaceChild(newNode,value[1]);
+            }
         });
      }
 
