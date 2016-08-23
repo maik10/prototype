@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
+import { appRouterProviders } from './app.routes';
+
 @Component({
   selector: 'my-app',
   template: '<router-outlet></router-outlet>',

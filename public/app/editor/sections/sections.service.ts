@@ -16,7 +16,6 @@ export class SectionsService {
     }
     private extractData(res: Response) {
         let body = res.json();
-        console.log(body);
         return body || { };
     }
     private handleError (error: any) {

@@ -11,29 +11,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 require('rxjs/add/operator/toPromise');
-var UnitsService = (function () {
-    function UnitsService(http) {
+var SectionsService = (function () {
+    function SectionsService(http) {
         this.http = http;
-        this.unitsUrl = "api/getUnits";
+        this.unitsUrl = "api/getSections";
     }
-    UnitsService.prototype.getUnits = function () {
-        var data = "";
-        return this.http.get(this.unitsUrl)
+    SectionsService.prototype.getSections = function (PageId) {
+        return this.http.get(this.unitsUrl + "/" + PageId)
             .toPromise()
             .then(this.extractData)
             .catch(this.handleError);
     };
-    UnitsService.prototype.createUnit = function (unit) {
-        return this.http.get(this.unitsUrl + "/create/" + unit.name + "/" + unit.description)
-            .toPromise()
-            .then(this.extractData)
-            .catch(this.handleError);
-    };
-    UnitsService.prototype.extractData = function (res) {
+    SectionsService.prototype.extractData = function (res) {
         var body = res.json();
+        console.log(body);
         return body || {};
     };
-    UnitsService.prototype.handleError = function (error) {
+    SectionsService.prototype.handleError = function (error) {
         // In a real world app, we might use a remote logging infrastructure
         // We'd also dig deeper into the error to get a better message
         var errMsg = (error.message) ? error.message :
@@ -41,11 +35,11 @@ var UnitsService = (function () {
         console.error(errMsg); // log to console instead
         return Promise.reject(errMsg);
     };
-    UnitsService = __decorate([
+    SectionsService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])
-    ], UnitsService);
-    return UnitsService;
+    ], SectionsService);
+    return SectionsService;
 }());
-exports.UnitsService = UnitsService;
-//# sourceMappingURL=units.service.js.map
+exports.SectionsService = SectionsService;
+//# sourceMappingURL=section.service.js.map

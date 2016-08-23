@@ -1,5 +1,5 @@
 export
-class Page{
+class Section{
     id:number;
     content:string;
     width:string;

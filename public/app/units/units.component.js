@@ -10,12 +10,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var units_service_1 = require('./units.service');
+var units_model_1 = require('./units.model');
 var http_1 = require('@angular/http');
 var router_1 = require('@angular/router');
 var UnitsComponent = (function () {
     function UnitsComponent(unitservice, router) {
         this.unitservice = unitservice;
         this.router = router;
+        this.newUnit = new units_model_1.Unit();
     }
     UnitsComponent.prototype.ngOnInit = function () {
         this.getUnits();
@@ -27,6 +29,12 @@ var UnitsComponent = (function () {
     };
     UnitsComponent.prototype.editUnit = function (unit) {
         this.router.navigate(['units/edit/', unit.id]);
+    };
+    UnitsComponent.prototype.onSubmit = function () {
+        var _this = this;
+        this.unitservice.createUnit(this.newUnit).then(function (success) { return _this.getUnits(); });
+        var element = document.getElementsByClassName('close')[0];
+        element.click();
     };
     UnitsComponent = __decorate([
         core_1.Component({

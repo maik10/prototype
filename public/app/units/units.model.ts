@@ -3,7 +3,12 @@ class Unit{
     id:number;
     name:string;
     description:string;
-    creationdate:string;
-    lastchange:string;
+    created_at:string;
+    updated_at:string;
     Users_id:number;
+
+    constructor($name = "", $description=""){
+        this.name = $name;
+        this.description = $description;
+    }
 }

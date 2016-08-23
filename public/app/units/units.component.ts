@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class UnitsComponent implements OnInit {
     errorMessage: string;
     units: Unit[];
-
+    newUnit = new Unit();
     constructor(private unitservice: UnitsService,private router: Router) { }
     
 
@@ -28,5 +28,10 @@ export class UnitsComponent implements OnInit {
      }
      editUnit(unit: Unit){
          this.router.navigate(['units/edit/',unit.id]);
+     }
+     onSubmit(){
+         this.unitservice.createUnit(this.newUnit).then(success => this.getUnits());
+         let element = <HTMLElement>document.getElementsByClassName('close')[0];
+         element.click();
      }
 }

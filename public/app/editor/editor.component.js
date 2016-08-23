@@ -28,11 +28,14 @@ var EditorComponent = (function () {
             },
             accepts: function (el, target) {
                 return target !== document.getElementById('tools');
+            },
+            removeOnSpill: function (el, target) {
+                return target !== document.getElementById('tools');
             }
         });
         dragulaService.drop.subscribe(function (value) {
             console.log(value);
-            if (value[0] == 'workspace') {
+            if (value[0] === 'workspace') {
                 var newNode = document.createElement("section");
                 newNode.textContent = "HTML5 section!";
                 newNode.classList.add("col-md-6");

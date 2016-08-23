@@ -22,6 +22,10 @@
   padding-right: 0px;
   padding-left: 0px;
 }
+.panel .navbar{
+  min-height: auto;
+  margin-bottom: 0;
+}
 .change-page-name{
     position: fixed;
     top: 1%;
