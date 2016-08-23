@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.6.30, for debian-linux-gnu (x86_64)
 --
--- Host: localhost    Database: oaprototype
+-- Host: localhost    Database: prototype
 -- ------------------------------------------------------
 -- Server version	5.6.30-1
 
@@ -16,92 +16,110 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `Pages`
+-- Table structure for table `migrations`
 --
 
-DROP TABLE IF EXISTS `Pages`;
+DROP TABLE IF EXISTS `migrations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Pages` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(100) NOT NULL,
-  `body` mediumtext NOT NULL,
-  `creationdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `lastchange` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `Units_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `Pages_Units` (`Units_id`),
-  CONSTRAINT `Pages_Units` FOREIGN KEY (`Units_id`) REFERENCES `Units` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+CREATE TABLE `migrations` (
+  `migration` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Pages`
+-- Dumping data for table `migrations`
 --
 
-LOCK TABLES `Pages` WRITE;
-/*!40000 ALTER TABLE `Pages` DISABLE KEYS */;
-INSERT INTO `Pages` VALUES (1,'Page 1','','2016-08-09 15:32:41','2016-08-09 14:33:09',0),(2,'Page 2','','2016-08-09 15:33:04','2016-08-09 14:34:29',0),(3,'Page 3','','2016-08-09 15:33:09','2016-08-09 14:35:20',0),(4,'Page 4','','2016-08-09 15:33:14','2016-08-09 14:35:45',0),(5,'Page 5','','2016-08-09 15:33:19','2016-08-09 14:36:34',0),(6,'Page 6','','2016-08-09 15:33:25','2016-08-09 14:40:01',0),(7,'Page 7','','2016-08-09 15:33:30','2016-08-09 14:40:34',0);
-/*!40000 ALTER TABLE `Pages` ENABLE KEYS */;
+LOCK TABLES `migrations` WRITE;
+/*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
+INSERT INTO `migrations` VALUES ('2014_10_12_000000_create_users_table',1),('2014_10_12_100000_create_password_resets_table',1),('2016_08_23_134199_units',1),('2016_08_23_134200_pages',1),('2016_08_23_134217_sharedUnits',1),('2016_08_23_134224_sections',1);
+/*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Units`
+-- Table structure for table `pages`
 --
 
-DROP TABLE IF EXISTS `Units`;
+DROP TABLE IF EXISTS `pages`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Units` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `description` varchar(300) NOT NULL,
-  `creationdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `lastchange` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `Users_id` int(11) NOT NULL,
+CREATE TABLE `pages` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `order` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `unit_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `Units_Users` (`Users_id`),
-  CONSTRAINT `Units_Users` FOREIGN KEY (`Users_id`) REFERENCES `Users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Unidades';
+  KEY `pages_unit_id_foreign` (`unit_id`),
+  CONSTRAINT `pages_unit_id_foreign` FOREIGN KEY (`unit_id`) REFERENCES `units` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Units`
+-- Dumping data for table `pages`
 --
 
-LOCK TABLES `Units` WRITE;
-/*!40000 ALTER TABLE `Units` DISABLE KEYS */;
-INSERT INTO `Units` VALUES (0,'Unit 1','Unit one','2016-08-08 05:00:00','2016-08-08 05:00:00',0);
-/*!40000 ALTER TABLE `Units` ENABLE KEYS */;
+LOCK TABLES `pages` WRITE;
+/*!40000 ALTER TABLE `pages` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pages` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Users`
+-- Table structure for table `password_resets`
 --
 
-DROP TABLE IF EXISTS `Users`;
+DROP TABLE IF EXISTS `password_resets`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Users` (
-  `id` int(11) NOT NULL,
-  `name` varchar(45) NOT NULL,
-  `lastname` varchar(45) NOT NULL,
-  `username` varchar(45) NOT NULL,
-  `password` varchar(60) NOT NULL,
-  `creationdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `lastlogin` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `password_resets` (
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  KEY `password_resets_email_index` (`email`),
+  KEY `password_resets_token_index` (`token`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Users`
+-- Dumping data for table `password_resets`
 --
 
-LOCK TABLES `Users` WRITE;
-/*!40000 ALTER TABLE `Users` DISABLE KEYS */;
-INSERT INTO `Users` VALUES (0,'Michael','Sanchez','michaelsanchez','123456','2016-08-08 05:00:00','2016-08-08 21:00:00');
-/*!40000 ALTER TABLE `Users` ENABLE KEYS */;
+LOCK TABLES `password_resets` WRITE;
+/*!40000 ALTER TABLE `password_resets` DISABLE KEYS */;
+/*!40000 ALTER TABLE `password_resets` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sections`
+--
+
+DROP TABLE IF EXISTS `sections`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sections` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `content` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `width` int(11) NOT NULL,
+  `order` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `page_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `sections_page_id_foreign` (`page_id`),
+  CONSTRAINT `sections_page_id_foreign` FOREIGN KEY (`page_id`) REFERENCES `pages` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sections`
+--
+
+LOCK TABLES `sections` WRITE;
+/*!40000 ALTER TABLE `sections` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sections` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -112,15 +130,17 @@ DROP TABLE IF EXISTS `sharedUnits`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sharedUnits` (
-  `id` int(11) NOT NULL,
-  `Users_id` int(11) NOT NULL,
-  `Units_id` int(11) NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `user_id` int(10) unsigned NOT NULL,
+  `unit_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `sharedUnits_Units` (`Units_id`),
-  KEY `sharedUnits_Users` (`Users_id`),
-  CONSTRAINT `sharedUnits_Units` FOREIGN KEY (`Units_id`) REFERENCES `Units` (`id`),
-  CONSTRAINT `sharedUnits_Users` FOREIGN KEY (`Users_id`) REFERENCES `Users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `sharedunits_user_id_foreign` (`user_id`),
+  KEY `sharedunits_unit_id_foreign` (`unit_id`),
+  CONSTRAINT `sharedunits_unit_id_foreign` FOREIGN KEY (`unit_id`) REFERENCES `units` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `sharedunits_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -130,6 +150,66 @@ CREATE TABLE `sharedUnits` (
 LOCK TABLES `sharedUnits` WRITE;
 /*!40000 ALTER TABLE `sharedUnits` DISABLE KEYS */;
 /*!40000 ALTER TABLE `sharedUnits` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `units`
+--
+
+DROP TABLE IF EXISTS `units`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `units` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `description` mediumtext COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `user_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `units_user_id_foreign` (`user_id`),
+  CONSTRAINT `units_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `units`
+--
+
+LOCK TABLES `units` WRITE;
+/*!40000 ALTER TABLE `units` DISABLE KEYS */;
+INSERT INTO `units` VALUES (1,'adsada','asdasda','2016-08-24 01:18:38','2016-08-24 01:18:38',1),(2,'Unidad 1','Descripción 1','2016-08-24 01:20:47','2016-08-24 01:20:47',1),(3,'Unidad 2','Descripcion de la unidad 2','2016-08-24 01:23:35','2016-08-24 01:23:35',1),(4,'dadas','adasda','2016-08-24 01:33:31','2016-08-24 01:33:31',1),(5,'asdasd','asdasdaa','2016-08-24 01:33:46','2016-08-24 01:33:46',1),(6,'UNidad 4','Unidad 4','2016-08-24 01:35:18','2016-08-24 01:35:18',1),(7,'unit test','Unit test','2016-08-24 01:37:24','2016-08-24 01:37:24',1),(8,'dasdsa','sadsadasdadadsadas','2016-08-24 02:05:45','2016-08-24 02:05:45',1);
+/*!40000 ALTER TABLE `units` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_email_unique` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'Michael Sanchez','michaelsanchez@catedra.edu.co','jjjjjjjj',NULL,NULL,NULL);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -141,4 +221,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-08-22 16:29:34
+-- Dump completed on 2016-08-23 16:57:31
