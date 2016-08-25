@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{!! asset('node_modules/font-awesome/css/font-awesome.min.css') !!}">
     <link rel="stylesheet" href="{!! asset('node_modules/dragula/dist/dragula.css') !!}">
     <link rel="stylesheet" href="{!! asset('css/styles.css') !!}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- 1. Load libraries -->
      <!-- Polyfill(s) for older browsers -->
     <script src="{{ asset('node_modules/core-js/client/shim.min.js') }}"></script>
@@ -22,9 +23,7 @@
   </head>
   <!-- 3. Display the application -->
   <body>
-     <div class="container-fluid">
         @yield('content')
-     </div>
      <script src="{{ asset('node_modules/jquery/dist/jquery.min.js') }}"></script>
      <script src="{{ asset('node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
   </body>

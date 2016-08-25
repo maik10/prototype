@@ -52,6 +52,28 @@
   min-height: 250px;
   border: 1px dashed rgba(0,0,0,.8);
 }
+a:focus, a:hover{
+  text-decoration: none
+}
+.secondary{
+  color:rgba(0,0,0,0.54)
+}
+.md-ripple-background, .md-ripple-foreground{
+  background-color: rgba(0,0,0,0) !important;
+}
+.card-img{
+  width: 100%;
+}
+md-card{
+  width: 23%;
+  margin-left: 1.6%;
+  margin-top: 1%;
+}
+.card-container{
+  display: flex;
+  flex-flow: row wrap;
+}
+
  /*
   * See https://github.com/angular/angular.io/blob/master/public/docs/_examples/styles.css
   * for the full set of master styles used by the documentation samples

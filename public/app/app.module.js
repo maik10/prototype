@@ -13,13 +13,41 @@ var platform_browser_1 = require('@angular/platform-browser');
 var app_component_1 = require('./app.component');
 var forms_1 = require('@angular/forms');
 var app_routing_1 = require('./app.routing');
+var units_component_1 = require('./units/units.component');
+var editor_component_1 = require('./editor/editor.component');
+var button_1 = require('@angular2-material/button');
+var card_1 = require('@angular2-material/card');
+var checkbox_1 = require('@angular2-material/checkbox');
+var core_2 = require('@angular2-material/core');
+var input_1 = require('@angular2-material/input');
+var progress_circle_1 = require('@angular2-material/progress-circle');
+var toolbar_1 = require('@angular2-material/toolbar');
+var sidenav_1 = require('@angular2-material/sidenav');
+var icon_1 = require('@angular2-material/icon');
+var menu_1 = require('@angular2-material/menu');
+var list_1 = require('@angular2-material/list');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, app_routing_1.routing, forms_1.FormsModule],
-            declarations: [app_component_1.AppComponent],
+            imports: [
+                platform_browser_1.BrowserModule,
+                app_routing_1.routing,
+                forms_1.FormsModule,
+                button_1.MdButtonModule,
+                card_1.MdCardModule,
+                checkbox_1.MdCheckboxModule,
+                core_2.MdCoreModule,
+                input_1.MdInputModule,
+                progress_circle_1.MdProgressCircleModule,
+                toolbar_1.MdToolbarModule,
+                sidenav_1.MdSidenavModule,
+                icon_1.MdIconModule,
+                menu_1.MdMenuModule,
+                list_1.MdListModule
+            ],
+            declarations: [app_component_1.AppComponent, units_component_1.UnitsComponent, editor_component_1.EditorComponent],
             providers: [app_routing_1.appRoutingProviders],
             bootstrap: [app_component_1.AppComponent]
         }), 

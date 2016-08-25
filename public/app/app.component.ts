@@ -1,10 +1,17 @@
 import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
-import { appRouterProviders } from './app.routes';
-
+import { appRoutingProviders } from './app.routing';
 @Component({
   selector: 'my-app',
-  template: '<router-outlet></router-outlet>',
+  templateUrl: 'app/app.component.html',
   directives: [ROUTER_DIRECTIVES]
 })
-export class AppComponent { }
+export class AppComponent {
+  views: Object[] = [
+    {
+      name: "Units",
+      description: 'List of units',
+      icon: 'library_books'
+    }
+  ];
+ }

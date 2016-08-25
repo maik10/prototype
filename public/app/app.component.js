@@ -12,11 +12,18 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var AppComponent = (function () {
     function AppComponent() {
+        this.views = [
+            {
+                name: "Units",
+                description: 'List of units',
+                icon: 'library_books'
+            }
+        ];
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: '<router-outlet></router-outlet>',
+            templateUrl: 'app/app.component.html',
             directives: [router_1.ROUTER_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [])
