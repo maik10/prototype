@@ -18,6 +18,7 @@ var UnitsComponent = (function () {
         this.unitservice = unitservice;
         this.router = router;
         this.newUnit = new units_model_1.Unit();
+        this.formShowing = false;
     }
     UnitsComponent.prototype.ngOnInit = function () {
         this.getUnits();
@@ -33,8 +34,8 @@ var UnitsComponent = (function () {
     UnitsComponent.prototype.onSubmit = function () {
         var _this = this;
         this.unitservice.createUnit(this.newUnit).then(function (success) { return _this.getUnits(); });
-        var element = document.getElementsByClassName('close')[0];
-        element.click();
+        this.formShowing = false;
+        this.newUnit = new units_model_1.Unit();
     };
     UnitsComponent = __decorate([
         core_1.Component({

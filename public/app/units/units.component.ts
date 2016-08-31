@@ -13,6 +13,7 @@ export class UnitsComponent implements OnInit {
     errorMessage: string;
     units: Unit[];
     newUnit = new Unit();
+    formShowing: boolean = false;
     constructor(private unitservice: UnitsService,private router: Router) { }
     
 
@@ -31,7 +32,7 @@ export class UnitsComponent implements OnInit {
      }
      onSubmit(){
          this.unitservice.createUnit(this.newUnit).then(success => this.getUnits());
-         let element = <HTMLElement>document.getElementsByClassName('close')[0];
-         element.click();
+         this.formShowing = false;
+         this.newUnit = new Unit();
      }
 }

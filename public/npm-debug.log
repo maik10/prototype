@@ -1,0 +1,140 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '--save',
+1 verbose cli   'angular2-material/dialog' ]
+2 info using npm@3.9.2
+3 info using node@v6.2.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData angular2-material/dialog
+8 silly fetchOtherPackageData angular2-material/dialog
+9 silly cache add args [ 'angular2-material/dialog', null ]
+10 verbose cache add spec angular2-material/dialog
+11 silly cache add parsed spec Result {
+11 silly cache add   raw: 'angular2-material/dialog',
+11 silly cache add   scope: null,
+11 silly cache add   name: null,
+11 silly cache add   rawSpec: 'angular2-material/dialog',
+11 silly cache add   spec: 'github:angular2-material/dialog',
+11 silly cache add   type: 'hosted',
+11 silly cache add   hosted:
+11 silly cache add    { type: 'github',
+11 silly cache add      ssh: 'git@github.com:angular2-material/dialog.git',
+11 silly cache add      sshUrl: 'git+ssh://git@github.com/angular2-material/dialog.git',
+11 silly cache add      httpsUrl: 'git+https://github.com/angular2-material/dialog.git',
+11 silly cache add      gitUrl: 'git://github.com/angular2-material/dialog.git',
+11 silly cache add      shortcut: 'github:angular2-material/dialog',
+11 silly cache add      directUrl: 'https://raw.githubusercontent.com/angular2-material/dialog/master/package.json' } }
+12 verbose addRemoteGit caching angular2-material/dialog
+13 verbose addRemoteGit angular2-material/dialog is a repository hosted by github
+14 silly tryGitProto attempting to clone git://github.com/angular2-material/dialog.git
+15 silly tryClone cloning angular2-material/dialog via git://github.com/angular2-material/dialog.git
+16 verbose tryClone git-github-com-angular2-material-dialog-git-4bdba25f not in flight; caching
+17 verbose correctMkdir /root/.npm/_git-remotes correctMkdir not in flight; initializing
+18 info git [ 'clone',
+18 info git   '--template=/root/.npm/_git-remotes/_templates',
+18 info git   '--mirror',
+18 info git   'git://github.com/angular2-material/dialog.git',
+18 info git   '/root/.npm/_git-remotes/git-github-com-angular2-material-dialog-git-4bdba25f' ]
+19 verbose git clone --template=/root/.npm/_git-remotes/_templates --mirror git://github.com/angular2-material/dialog.git /root/.npm/_git-remotes/git-github-com-angular2-material-dialog-git-4bdba25f: Cloning into bare repository '/root/.npm/_git-remotes/git-github-com-angular2-material-dialog-git-4bdba25f'...
+19 verbose git clone --template=/root/.npm/_git-remotes/_templates --mirror git://github.com/angular2-material/dialog.git /root/.npm/_git-remotes/git-github-com-angular2-material-dialog-git-4bdba25f: fatal: remote error:
+19 verbose git clone --template=/root/.npm/_git-remotes/_templates --mirror git://github.com/angular2-material/dialog.git /root/.npm/_git-remotes/git-github-com-angular2-material-dialog-git-4bdba25f:   Repository not found.
+20 silly tryHTTPS attempting to clone git+https://github.com/angular2-material/dialog.git
+21 silly tryClone cloning angular2-material/dialog via git+https://github.com/angular2-material/dialog.git
+22 verbose tryClone git-https-github-com-angular2-material-dialog-git-6aee741e not in flight; caching
+23 verbose correctMkdir /root/.npm/_git-remotes correctMkdir not in flight; initializing
+24 info git [ 'clone',
+24 info git   '--template=/root/.npm/_git-remotes/_templates',
+24 info git   '--mirror',
+24 info git   'https://github.com/angular2-material/dialog.git',
+24 info git   '/root/.npm/_git-remotes/git-https-github-com-angular2-material-dialog-git-6aee741e' ]
+25 verbose git clone --template=/root/.npm/_git-remotes/_templates --mirror https://github.com/angular2-material/dialog.git /root/.npm/_git-remotes/git-https-github-com-angular2-material-dialog-git-6aee741e: Cloning into bare repository '/root/.npm/_git-remotes/git-https-github-com-angular2-material-dialog-git-6aee741e'...
+25 verbose git clone --template=/root/.npm/_git-remotes/_templates --mirror https://github.com/angular2-material/dialog.git /root/.npm/_git-remotes/git-https-github-com-angular2-material-dialog-git-6aee741e: remote: Invalid username or password.
+25 verbose git clone --template=/root/.npm/_git-remotes/_templates --mirror https://github.com/angular2-material/dialog.git /root/.npm/_git-remotes/git-https-github-com-angular2-material-dialog-git-6aee741e: fatal: Authentication failed for 'https://github.com/angular2-material/dialog.git/'
+26 silly trySSH attempting to clone git@github.com:angular2-material/dialog.git
+27 silly tryClone cloning angular2-material/dialog via git@github.com:angular2-material/dialog.git
+28 verbose tryClone git-github-com-angular2-material-dialog-git-03249942 not in flight; caching
+29 verbose correctMkdir /root/.npm/_git-remotes correctMkdir not in flight; initializing
+30 info git [ 'clone',
+30 info git   '--template=/root/.npm/_git-remotes/_templates',
+30 info git   '--mirror',
+30 info git   'git@github.com:angular2-material/dialog.git',
+30 info git   '/root/.npm/_git-remotes/git-github-com-angular2-material-dialog-git-03249942' ]
+31 error git clone --template=/root/.npm/_git-remotes/_templates --mirror git@github.com:angular2-material/dialog.git /root/.npm/_git-remotes/git-github-com-angular2-material-dialog-git-03249942: Cloning into bare repository '/root/.npm/_git-remotes/git-github-com-angular2-material-dialog-git-03249942'...
+31 error git clone --template=/root/.npm/_git-remotes/_templates --mirror git@github.com:angular2-material/dialog.git /root/.npm/_git-remotes/git-github-com-angular2-material-dialog-git-03249942: Warning: Permanently added the RSA host key for IP address '192.30.253.113' to the list of known hosts.
+31 error git clone --template=/root/.npm/_git-remotes/_templates --mirror git@github.com:angular2-material/dialog.git /root/.npm/_git-remotes/git-github-com-angular2-material-dialog-git-03249942: Permission denied (publickey).
+31 error git clone --template=/root/.npm/_git-remotes/_templates --mirror git@github.com:angular2-material/dialog.git /root/.npm/_git-remotes/git-github-com-angular2-material-dialog-git-03249942: fatal: Could not read from remote repository.
+31 error git clone --template=/root/.npm/_git-remotes/_templates --mirror git@github.com:angular2-material/dialog.git /root/.npm/_git-remotes/git-github-com-angular2-material-dialog-git-03249942:
+31 error git clone --template=/root/.npm/_git-remotes/_templates --mirror git@github.com:angular2-material/dialog.git /root/.npm/_git-remotes/git-github-com-angular2-material-dialog-git-03249942: Please make sure you have the correct access rights
+31 error git clone --template=/root/.npm/_git-remotes/_templates --mirror git@github.com:angular2-material/dialog.git /root/.npm/_git-remotes/git-github-com-angular2-material-dialog-git-03249942: and the repository exists.
+32 silly fetchPackageMetaData Error: Command failed: git clone --template=/root/.npm/_git-remotes/_templates --mirror git@github.com:angular2-material/dialog.git /root/.npm/_git-remotes/git-github-com-angular2-material-dialog-git-03249942
+32 silly fetchPackageMetaData Cloning into bare repository '/root/.npm/_git-remotes/git-github-com-angular2-material-dialog-git-03249942'...
+32 silly fetchPackageMetaData Warning: Permanently added the RSA host key for IP address '192.30.253.113' to the list of known hosts.
+32 silly fetchPackageMetaData Permission denied (publickey).
+32 silly fetchPackageMetaData fatal: Could not read from remote repository.
+32 silly fetchPackageMetaData
+32 silly fetchPackageMetaData Please make sure you have the correct access rights
+32 silly fetchPackageMetaData and the repository exists.
+32 silly fetchPackageMetaData
+32 silly fetchPackageMetaData     at ChildProcess.exithandler (child_process.js:202:12)
+32 silly fetchPackageMetaData     at emitTwo (events.js:106:13)
+32 silly fetchPackageMetaData     at ChildProcess.emit (events.js:191:7)
+32 silly fetchPackageMetaData     at maybeClose (internal/child_process.js:850:16)
+32 silly fetchPackageMetaData     at Process.ChildProcess._handle.onexit (internal/child_process.js:215:5)
+32 silly fetchPackageMetaData  error for angular2-material/dialog { Error: Command failed: git clone --template=/root/.npm/_git-remotes/_templates --mirror git@github.com:angular2-material/dialog.git /root/.npm/_git-remotes/git-github-com-angular2-material-dialog-git-03249942
+32 silly fetchPackageMetaData Cloning into bare repository '/root/.npm/_git-remotes/git-github-com-angular2-material-dialog-git-03249942'...
+32 silly fetchPackageMetaData Warning: Permanently added the RSA host key for IP address '192.30.253.113' to the list of known hosts.
+32 silly fetchPackageMetaData Permission denied (publickey).
+32 silly fetchPackageMetaData fatal: Could not read from remote repository.
+32 silly fetchPackageMetaData
+32 silly fetchPackageMetaData Please make sure you have the correct access rights
+32 silly fetchPackageMetaData and the repository exists.
+32 silly fetchPackageMetaData
+32 silly fetchPackageMetaData     at ChildProcess.exithandler (child_process.js:202:12)
+32 silly fetchPackageMetaData     at emitTwo (events.js:106:13)
+32 silly fetchPackageMetaData     at ChildProcess.emit (events.js:191:7)
+32 silly fetchPackageMetaData     at maybeClose (internal/child_process.js:850:16)
+32 silly fetchPackageMetaData     at Process.ChildProcess._handle.onexit (internal/child_process.js:215:5)
+32 silly fetchPackageMetaData   killed: false,
+32 silly fetchPackageMetaData   code: 128,
+32 silly fetchPackageMetaData   signal: null,
+32 silly fetchPackageMetaData   cmd: 'git clone --template=/root/.npm/_git-remotes/_templates --mirror git@github.com:angular2-material/dialog.git /root/.npm/_git-remotes/git-github-com-angular2-material-dialog-git-03249942' }
+33 silly rollbackFailedOptional Starting
+34 silly rollbackFailedOptional Finishing
+35 silly runTopLevelLifecycles Starting
+36 silly runTopLevelLifecycles Finishing
+37 silly install printInstalled
+38 verbose stack Error: Command failed: git clone --template=/root/.npm/_git-remotes/_templates --mirror git@github.com:angular2-material/dialog.git /root/.npm/_git-remotes/git-github-com-angular2-material-dialog-git-03249942
+38 verbose stack Cloning into bare repository '/root/.npm/_git-remotes/git-github-com-angular2-material-dialog-git-03249942'...
+38 verbose stack Warning: Permanently added the RSA host key for IP address '192.30.253.113' to the list of known hosts.
+38 verbose stack Permission denied (publickey).
+38 verbose stack fatal: Could not read from remote repository.
+38 verbose stack
+38 verbose stack Please make sure you have the correct access rights
+38 verbose stack and the repository exists.
+38 verbose stack
+38 verbose stack     at ChildProcess.exithandler (child_process.js:202:12)
+38 verbose stack     at emitTwo (events.js:106:13)
+38 verbose stack     at ChildProcess.emit (events.js:191:7)
+38 verbose stack     at maybeClose (internal/child_process.js:850:16)
+38 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:215:5)
+39 verbose cwd /var/www/html/prototype/public
+40 error Linux 4.6.0-kali1-amd64
+41 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "--save" "angular2-material/dialog"
+42 error node v6.2.0
+43 error npm  v3.9.2
+44 error code 128
+45 error Command failed: git clone --template=/root/.npm/_git-remotes/_templates --mirror git@github.com:angular2-material/dialog.git /root/.npm/_git-remotes/git-github-com-angular2-material-dialog-git-03249942
+45 error Cloning into bare repository '/root/.npm/_git-remotes/git-github-com-angular2-material-dialog-git-03249942'...
+45 error Warning: Permanently added the RSA host key for IP address '192.30.253.113' to the list of known hosts.
+45 error Permission denied (publickey).
+45 error fatal: Could not read from remote repository.
+45 error
+45 error Please make sure you have the correct access rights
+45 error and the repository exists.
+46 error If you need help, you may report this error at:
+46 error     <https://github.com/npm/npm/issues>
+47 verbose exit [ 1, true ]

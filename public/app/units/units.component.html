@@ -1,28 +1,25 @@
 
 <!-- Modal -->
-<div class="modal fade" id="addUnit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">New Unit</h4>
-      </div>
-      <div class="modal-body">
-          <form #unitForm="ngForm" (ngSubmit)="onSubmit()">
-              <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" name="name" [(ngModel)]="newUnit.name" class="form-control" id="name" placeholder="Name" required>
-             </div>
-             <div class="form-group">
-                <label for="description">Description</label>
-                <input type="text" name="description" [(ngModel)]="newUnit.description" class="form-control" id="description" placeholder="Description" required>
-             </div>
-             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Save</button>
-          </form>
-      </div>
-    </div>
-  </div>
+<button [class.active]="formShowing" md-button md-tooltip="Add unit" (click)="formShowing=!formShowing"><md-icon >add</md-icon></button>
+<div class="form" [class.active]="formShowing">
+    <md-card>
+        <md-card-title>Add Unit</md-card-title>
+        <md-card-content>
+            <md-input-container>
+                <md-input placeholder="name" [(ngModel)]="newUnit.name"></md-input>
+                <md-input placeholder="Description" maxLength="100" class="demo-full-width"
+                         [(ngModel)]="newUnit.description"
+                        #description
+                >
+                <md-hint align="end">{{description.characterCount}} / 200</md-hint>
+                </md-input>
+            </md-input-container>
+        </md-card-content>
+        <md-card-actions align="end">
+            {{newUnit.name}}
+            <button (click)="onSubmit()" md-raised-button>ADD UNIT</button>
+        </md-card-actions>
+    </md-card>
 </div>
 <div class="card-container">
     <md-card *ngFor="let unit  of units">
@@ -38,7 +35,7 @@
                 </md-list-item>
             </md-nav-list>
         </md-card-content>
-        <md-card-action layout="row" layout-align="end">
+        <md-card-action align="end">
             <button md-button color="primary" (click)="editUnit(unit)">Edit</button>
         </md-card-action>
     </md-card>

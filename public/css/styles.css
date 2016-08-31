@@ -60,11 +60,12 @@ a:focus, a:hover{
 }
 .md-ripple-background, .md-ripple-foreground{
   background-color: rgba(0,0,0,0) !important;
+  display: none;
 }
 .card-img{
   width: 100%;
 }
-md-card{
+.card-container md-card{
   width: 23%;
   margin-left: 1.6%;
   margin-top: 1%;
@@ -73,7 +74,33 @@ md-card{
   display: flex;
   flex-flow: row wrap;
 }
-
+.md-button-ripple{
+  box-sizing: content-box;
+}
+.form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 1;
+    transform: scale(0);
+    transform-origin: 0% 0%;
+    box-shadow: 0px 5px 5px rgba(126, 111, 111, 0.39);
+    transition: .3s all cubic-bezier(0.19, 1, 0.22, 1);
+}
+.form.active{
+  transform: scale(1);
+}
+.form md-card{
+  align-self: flex-start;
+}
+.form md-card md-input{
+  width: 100%;
+}
+.active md-icon{
+      transform: rotate(45deg);
+      transition: rotate 1s ease;
+}
  /*
   * See https://github.com/angular/angular.io/blob/master/public/docs/_examples/styles.css
   * for the full set of master styles used by the documentation samples

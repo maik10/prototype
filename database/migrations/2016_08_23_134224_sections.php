@@ -35,6 +35,6 @@ class Sections extends Migration
      */
     public function down()
     {
-        Schema::drop('pages');
+        Schema::drop('sections');
     }
 }
