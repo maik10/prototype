@@ -22,4 +22,7 @@ export class PagesComponent implements OnInit {
              error =>  this.errorMessage = <any>error
          );
      }
+     createPage(page:Page){
+          this.pageservice.create(page).then(success => this.getPages(page.unit_id));
+     }
 }

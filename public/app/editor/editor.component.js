@@ -57,7 +57,10 @@ var EditorComponent = (function () {
         this.selectedPage = page;
     };
     EditorComponent.prototype.addPage = function () {
-        console.log(this.newPage);
+        this.newPage.unit_id = this.id;
+        this.pagecomponent.createPage(this.newPage);
+        this.newPage = new page_model_1.Page();
+        this.formShowing = false;
     };
     EditorComponent.prototype.ngOnDestroy = function () {
         this.paramsSub.unsubscribe();

@@ -21,6 +21,10 @@ var PagesComponent = (function () {
         this.pageservice.getPages(unitId)
             .then(function (Pages) { return _this.pages = Pages; }, function (error) { return _this.errorMessage = error; });
     };
+    PagesComponent.prototype.createPage = function (page) {
+        var _this = this;
+        this.pageservice.create(page).then(function (success) { return _this.getPages(page.unit_id); });
+    };
     PagesComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

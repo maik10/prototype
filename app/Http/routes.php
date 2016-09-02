@@ -23,7 +23,8 @@ Route::get('/units/edit/{id?}',function (){
 });
 Route::group(array('prefix' => 'api'), function(){
     Route::get('/getUnits','UnitsController@getUnits');
-    Route::get('/getPages/{unitId}','PagesController@getPages');
+    Route::get('/pages/get/{unitId}','PagesController@getPages');
     Route::get('/getUnits/create/{unitName}/{unitDescription}','UnitsController@createUnit');
     Route::get('/getUnits/update/{id}/{unitName}/{unitDescription}','UnitsController@updateUnit');
+    Route::get('/pages/create/{name}/{unitid}','PagesController@create');
 });

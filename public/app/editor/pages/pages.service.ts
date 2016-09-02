@@ -6,18 +6,23 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class PagesService {
 
-    private unitsUrl = "api/getPages";
+    private unitsUrl = "api/pages";
     constructor(private http:Http) { }
     getPages(unitId:number): Promise<Page[]> {
-        return this.http.get(this.unitsUrl+"/"+unitId)
+        return this.http.get(this.unitsUrl+"/get/"+unitId)
                         .toPromise()
                         .then(this.extractData)
                         .catch(this.handleError);
     }
     private extractData(res: Response) {
         let body = res.json();
-        console.log(body);
         return body || { };
+    }
+    create(page:Page) {
+        return this.http.get(this.unitsUrl+"/create/"+page.name+"/"+page.unit_id)
+                        .toPromise()
+                        .then(this.extractData)
+                        .catch(this.handleError);
     }
     private handleError (error: any) {
         // In a real world app, we might use a remote logging infrastructure

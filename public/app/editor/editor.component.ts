@@ -55,7 +55,10 @@ export class EditorComponent implements OnInit {
         this.selectedPage = page;
     }
     addPage(){
-        console.log(this.newPage)
+        this.newPage.unit_id = this.id;
+        this.pagecomponent.createPage(this.newPage);
+        this.newPage = new Page();
+        this.formShowing = false;
     }
     ngOnDestroy() {
         this.paramsSub.unsubscribe();

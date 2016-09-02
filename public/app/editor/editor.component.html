@@ -20,13 +20,12 @@
                 </div>
             </md-card-header>
             <md-card-content [dragula]='"pages"'>
-                <md-card *ngFor="let page of pagecomponent.pages; let i = index"  
+                <md-card class="page" *ngFor="let page of pagecomponent.pages; let i = index"  
                 (click)="selectPage(page)" 
                 [class.selected]="page === selectedPage">
-                    <md-card-header>
-                        <md-card-title>{{page.title}}</md-card-title>
-                    </md-card-header>
-                    <md-card-content></md-card-content>
+                    <md-card-content>
+                        <h4>{{page.name}}</h4>
+                    </md-card-content>
                 </md-card>
             </md-card-content>
         </md-card>

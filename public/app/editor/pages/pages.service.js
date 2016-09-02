@@ -14,18 +14,23 @@ require('rxjs/add/operator/toPromise');
 var PagesService = (function () {
     function PagesService(http) {
         this.http = http;
-        this.unitsUrl = "api/getPages";
+        this.unitsUrl = "api/pages";
     }
     PagesService.prototype.getPages = function (unitId) {
-        return this.http.get(this.unitsUrl + "/" + unitId)
+        return this.http.get(this.unitsUrl + "/get/" + unitId)
             .toPromise()
             .then(this.extractData)
             .catch(this.handleError);
     };
     PagesService.prototype.extractData = function (res) {
         var body = res.json();
-        console.log(body);
         return body || {};
+    };
+    PagesService.prototype.create = function (page) {
+        return this.http.get(this.unitsUrl + "/create/" + page.name + "/" + page.unit_id)
+            .toPromise()
+            .then(this.extractData)
+            .catch(this.handleError);
     };
     PagesService.prototype.handleError = function (error) {
         // In a real world app, we might use a remote logging infrastructure
