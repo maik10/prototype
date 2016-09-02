@@ -1,10 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { Router, ActivatedRoute} from '@angular/router';
 import { EditorService } from './editor.service';
 import { PagesComponent } from './pages/pages.component';
 import { Page } from './pages/page.model';
 import {Dragula, DragulaService} from 'ng2-dragula/ng2-dragula';
-import {DND_PROVIDERS, DND_DIRECTIVES} from 'ng2-dnd/ng2-dnd';
 
 @Component({
     moduleId: module.id,
@@ -15,9 +14,11 @@ import {DND_PROVIDERS, DND_DIRECTIVES} from 'ng2-dnd/ng2-dnd';
 export class EditorComponent implements OnInit {
     id: any;
     paramsSub: any;
-    selectedPage:Page;
+    selectedPage: Page;
+    newPage = new Page();
+    formShowing: boolean = false;
     dragOperation: boolean = false;
-     @ViewChild(PagesComponent) pagecomponent: PagesComponent;
+    @ViewChild(PagesComponent) pagecomponent: PagesComponent;
     constructor(private route: ActivatedRoute, private router: Router,private activatedRoute: ActivatedRoute,private dragulaService: DragulaService) {
         dragulaService.setOptions('pages', {
             removeOnSpill: true
@@ -52,6 +53,9 @@ export class EditorComponent implements OnInit {
     }
     selectPage(page: Page){
         this.selectedPage = page;
+    }
+    addPage(){
+        console.log(this.newPage)
     }
     ngOnDestroy() {
         this.paramsSub.unsubscribe();

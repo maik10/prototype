@@ -29,6 +29,12 @@ var UnitsService = (function () {
             .then(this.extractData)
             .catch(this.handleError);
     };
+    UnitsService.prototype.updateUnit = function (unit) {
+        return this.http.get(this.unitsUrl + "/update/" + unit.id + "/" + unit.name + "/" + unit.description)
+            .toPromise()
+            .then(this.extractData)
+            .catch(this.handleError);
+    };
     UnitsService.prototype.extractData = function (res) {
         var body = res.json();
         return body || {};

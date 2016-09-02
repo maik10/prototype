@@ -1,9 +1,9 @@
 export
 class Page{
     id:number;
-    title:string;
-    body:string;
-    creationdate:string;
-    lastchange:string;
-    Units_id:number;
+    name:string;
+    order:number;
+    created_at:string;
+    updated_at:string;
+    unit_id:number;
 }

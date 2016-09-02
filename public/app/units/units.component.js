@@ -19,6 +19,7 @@ var UnitsComponent = (function () {
         this.router = router;
         this.newUnit = new units_model_1.Unit();
         this.formShowing = false;
+        this.selectedUnit = new units_model_1.Unit();
     }
     UnitsComponent.prototype.ngOnInit = function () {
         this.getUnits();
@@ -36,6 +37,19 @@ var UnitsComponent = (function () {
         this.unitservice.createUnit(this.newUnit).then(function (success) { return _this.getUnits(); });
         this.formShowing = false;
         this.newUnit = new units_model_1.Unit();
+    };
+    UnitsComponent.prototype.selectUnit = function (unit) {
+        if (this.selectedUnit === unit) {
+            this.selectedUnit = new units_model_1.Unit();
+        }
+        else {
+            this.selectedUnit = unit;
+        }
+    };
+    UnitsComponent.prototype.updateUnit = function (unit) {
+        var _this = this;
+        this.unitservice.updateUnit(unit).then(function (success) { return _this.getUnits(); });
+        ;
     };
     UnitsComponent = __decorate([
         core_1.Component({

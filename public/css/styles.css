@@ -48,10 +48,6 @@
     padding: .5%;
     border-right: 1px solid rgba(0,0,0,.8);
 }
-.workspace{
-  min-height: 250px;
-  border: 1px dashed rgba(0,0,0,.8);
-}
 a:focus, a:hover{
   text-decoration: none
 }
@@ -84,11 +80,13 @@ a:focus, a:hover{
     position: fixed;
     z-index: 1;
     transform: scale(0);
+    border-radius: 50%;
     transform-origin: 0% 0%;
     box-shadow: 0px 5px 5px rgba(126, 111, 111, 0.39);
     transition: .3s all cubic-bezier(0.19, 1, 0.22, 1);
 }
 .form.active{
+  border-radius: 1%;
   transform: scale(1);
 }
 .form md-card{
@@ -97,9 +95,94 @@ a:focus, a:hover{
 .form md-card md-input{
   width: 100%;
 }
-.active md-icon{
-      transform: rotate(45deg);
-      transition: rotate 1s ease;
+md-icon{
+    cursor: pointer;
+   transition: all .3s ease;
+}
+.active md-icon,md-icon.active{
+      transform: rotate(135deg);
+}
+md-card-header{
+  justify-content: space-between;
+}
+.card-options{
+  cursor: pointer;
+}
+.card-options:hover{
+    background: rgba(0,0,0,.2);
+    border-radius: 25%;
+}
+.card-options-container{
+  position: absolute;
+  background: #3498DB;
+  left: 0;
+  top:15%;
+  z-index: 1;
+  width: 100%;
+  transform: scale(0);
+  transform-origin: 90% 0%;
+  box-shadow: 0px 5px 5px rgba(126, 111, 111, 0.39);
+  transition: .3s all cubic-bezier(0.19, 1, 0.22, 1);
+}
+.card-options-container.active{
+  transform: scale(1);
+}
+.card-options-container md-list-item [md-line]{
+  overflow-x: visible;
+  flex-direction: column;
+  margin-top:5%;
+}
+.card-options-container md-list md-list-item .md-list-item{
+  height: auto;
+}
+.card-options-container md-list md-list-item .md-list-text{
+  overflow: visible;
+}
+.card-options-container md-card{
+  width: 100%;
+  margin-left: 0;
+}
+.card-options-container md-card md-icon{
+  font-size: 15px;
+}
+
+/*
+ * Flex styles
+ * 
+ */
+ .flex-container{
+   display: flex;
+   width: 100%;
+   align-items: stretch;
+ }
+ [class^="col-flex-"]{
+   display: flex;
+  flex-direction: row;
+   margin-left:0;
+ }
+.col-flex-2 {
+    width: 16.6%;
+}
+.col-flex-2 md-card,.col-flex-10 md-card{
+    flex-grow: 1;
+    flex-wrap: nowrap;
+    align-items: stretch;
+}
+.col-flex-10{
+  width: 83.4%;
+}
+.col-flex-12{
+  display: flex;
+  width: 100%;
+}
+/*
+ * End Flex styles
+ */
+
+.workspace{
+  min-height: 250px;
+  border: 1px dashed rgba(0,0,0,.8);
+  align-items: flex-start;
 }
  /*
   * See https://github.com/angular/angular.io/blob/master/public/docs/_examples/styles.css

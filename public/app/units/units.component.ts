@@ -14,6 +14,7 @@ export class UnitsComponent implements OnInit {
     units: Unit[];
     newUnit = new Unit();
     formShowing: boolean = false;
+    selectedUnit = new Unit();
     constructor(private unitservice: UnitsService,private router: Router) { }
     
 
@@ -34,5 +35,15 @@ export class UnitsComponent implements OnInit {
          this.unitservice.createUnit(this.newUnit).then(success => this.getUnits());
          this.formShowing = false;
          this.newUnit = new Unit();
+     }
+     selectUnit(unit:Unit){
+         if(this.selectedUnit === unit){
+             this.selectedUnit = new Unit();
+         }else{
+             this.selectedUnit = unit;
+         }
+     }
+     updateUnit(unit:Unit){
+         this.unitservice.updateUnit(unit).then(success => this.getUnits());;
      }
 }

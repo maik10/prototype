@@ -16,7 +16,6 @@
             </md-input-container>
         </md-card-content>
         <md-card-actions align="end">
-            {{newUnit.name}}
             <button (click)="onSubmit()" md-raised-button>ADD UNIT</button>
         </md-card-actions>
     </md-card>
@@ -24,7 +23,26 @@
 <div class="card-container">
     <md-card *ngFor="let unit  of units">
         <md-card-header>
-            <md-card-title>{{unit.name}}</md-card-title>
+            <md-card-title style="">{{unit.name}} </md-card-title>
+            <md-icon class="card-options" (click)="selectUnit(unit)">more_vert</md-icon>
+            <div class="card-options-container" [class.active]="unit === selectedUnit">
+                <md-card>
+                    <md-card-header>
+                        <md-card-title><h4>Edit mode</h4></md-card-title>
+                    </md-card-header>
+                    <md-card-content>
+                        <md-list>
+                            <md-list-item><md-input md-line [(ngModel)]="unit.name" placeholder="Name" (change)="updateUnit(unit)"></md-input></md-list-item>
+                            <md-list-item><md-input md-line [(ngModel)]="unit.description" placeholder="Description" #descriptionEdit (change)="updateUnit(unit)">
+                                <md-hint align="end">{{descriptionEdit.characterCount}} / 200</md-hint>
+                            </md-input></md-list-item>
+                        </md-list>
+                    </md-card-content>
+                    <md-card-actions align="end">
+                      
+                    </md-card-actions>
+                </md-card>
+            </div>
         </md-card-header>
         <img md-car-image class="card-img" [alt]="unit.name" src="https://res.cloudinary.com/rppcloud/image/upload/9f7c48a0-099b-4747-8089-658943e16b9a.jpg">
         <md-card-content class="secondary">

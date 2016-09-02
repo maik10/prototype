@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var pages_component_1 = require('./pages/pages.component');
+var page_model_1 = require('./pages/page.model');
 var ng2_dragula_1 = require('ng2-dragula/ng2-dragula');
 var EditorComponent = (function () {
     function EditorComponent(route, router, activatedRoute, dragulaService) {
@@ -18,6 +19,8 @@ var EditorComponent = (function () {
         this.router = router;
         this.activatedRoute = activatedRoute;
         this.dragulaService = dragulaService;
+        this.newPage = new page_model_1.Page();
+        this.formShowing = false;
         this.dragOperation = false;
         dragulaService.setOptions('pages', {
             removeOnSpill: true
@@ -52,6 +55,9 @@ var EditorComponent = (function () {
     };
     EditorComponent.prototype.selectPage = function (page) {
         this.selectedPage = page;
+    };
+    EditorComponent.prototype.addPage = function () {
+        console.log(this.newPage);
     };
     EditorComponent.prototype.ngOnDestroy = function () {
         this.paramsSub.unsubscribe();

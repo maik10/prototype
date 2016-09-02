@@ -21,6 +21,12 @@ export class UnitsService {
                         .then(this.extractData)
                         .catch(this.handleError);
     }
+    updateUnit(unit:Unit) {
+        return this.http.get(this.unitsUrl+"/update/"+unit.id+"/"+unit.name+"/"+unit.description)
+                        .toPromise()
+                        .then(this.extractData)
+                        .catch(this.handleError);
+    }
     private extractData(res: Response) {
         let body = res.json();
         return body || { };
